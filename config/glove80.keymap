@@ -26,7 +26,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo LOWER>, <&to LOWER>;
+            bindings = <&mo 1>, <&to 1>;
         };
     };
 
@@ -69,23 +69,34 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&none             &none     &none         &none         &mo 2                                                                                                           &mo 2         &kp PRINTSCREEN  &kp INSERT  &kp F11           &kp F12
-&none             &none     &kp F1        &kp F2        &kp F3        &kp F4                                                                                    &kp F5  &kp F6        &kp F7           &kp F8      &kp F9            &kp F10
-&none             &none     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4                                                                              &kp N5  &kp NUMBER_6  &kp N7           &kp N8      &kp N9            &kp N0
-&kp TAB           &none     &kp Q         &kp W         &kp E         &kp R                                                                                     &kp T   &kp Y         &kp U            &kp I       &kp O             &kp PAGE_UP
-&kp LSHIFT        &none     &kp A         &kp S         &kp D         &kp F         &kp G      &kp N5  &kp LEFT_ALT    &mo 1       &kp DELETE     &none         &kp H   &kp J         &kp K            &kp L       &kp PT_C_CEDILLA  &kp PAGE_DOWN
-&kp LEFT_CONTROL  &kp LGUI  &kp Z         &kp X         &kp C                       &kp SPACE  &kp V   &kp B           &kp DELETE  &kp BACKSPACE  &kp KP_ENTER          &kp N         &kp M            &kp P       &kp HOME          &kp END
+&none             &none     &none         &none         &mo 3                                                                                                    &mo 3         &kp PRINTSCREEN  &kp INSERT  &kp F11           &kp F12
+&none             &none     &kp F1        &kp F2        &kp F3        &kp F4                                                                             &kp F5  &kp F6        &kp F7           &kp F8      &kp F9            &kp F10
+&none             &none     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4                                                                       &kp N5  &kp NUMBER_6  &kp N7           &kp N8      &kp N9            &kp N0
+&kp TAB           &none     &kp Q         &kp W         &kp E         &kp R                                                                              &kp T   &kp Y         &kp U            &kp I       &kp O             &kp PAGE_UP
+&kp LSHIFT        &none     &kp A         &kp S         &kp D         &kp F         &kp G      &kp N5  &mo 2    &mo 1       &kp DELETE     &kp LEFT_ALT  &kp H   &kp J         &kp K            &kp L       &kp PT_C_CEDILLA  &kp PAGE_DOWN
+&kp LEFT_CONTROL  &kp LGUI  &kp Z         &kp X         &kp C                       &kp SPACE  &kp V   &kp B    &kp DELETE  &kp BACKSPACE  &kp KP_ENTER          &kp N         &kp M            &kp P       &kp HOME          &kp END
             >;
         };
 
-        lower_layer {
+        symbols {
             bindings = <
-&none  &none  &none                 &none                  &none                                                                                                   &none           &none             &none              &none  &none
-&none  &none  &kp PIPE              &none                  &none            &none                                                                     &none        &none           &none             &none              &none  &none
-&none  &none  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp EXCLAMATION  &kp QUESTION                                                              &kp MINUS    &kp PLUS        &kp KP_N8         &kp GRAVE          &none  &none
-&none  &none  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH        &kp BACKSLASH                                                             &kp PRCNT    &kp EQUAL       &kp TILDE         &kp CARET          &none  &none
-&none  &none  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN    &kp GREATER_THAN  &none      &kp DOLLAR  &none    &trans  &trans  &trans  &kp PERCENT  &kp UNDERSCORE  &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &none  &none
-&none  &none  &kp AT_SIGN           &kp AMPERSAND          &kp HASH                           &kp COMMA  &kp PERIOD  &none    &trans  &trans  &trans               &kp KP_N0       &kp KP_N0         &none              &none  &none
+&none  &none  &none                 &none                  &none                                                                                                              &none           &none             &none              &none  &none
+&none  &none  &kp PIPE              &none                  &none            &none                                                                                &none        &none           &none             &none              &none  &none
+&none  &none  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp EXCLAMATION  &kp QUESTION                                                                         &kp MINUS    &kp PLUS        &kp KP_N8         &kp GRAVE          &none  &none
+&none  &none  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH        &kp BACKSLASH                                                                        &kp PRCNT    &kp EQUAL       &kp TILDE         &kp CARET          &none  &none
+&none  &none  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN    &kp GREATER_THAN  &kp PT_EURO  &kp DOLLAR  &kp PT_POUND_SIGN    &none  &none  &none  &kp PERCENT  &kp UNDERSCORE  &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &none  &none
+&none  &none  &kp AT_SIGN           &kp AMPERSAND          &kp HASH                           &kp COMMA    &kp PERIOD  &none                &none  &none  &none               &kp KP_N0       &kp KP_N0         &none              &none  &none
+            >;
+        };
+
+        numbers {
+            bindings = <
+&none  &none  &none         &none         &none                                                                          &none     &none         &none            &none  &none
+&none  &none  &none         &none         &none         &none                                                     &none  &none     &none         &none            &none  &none
+&none  &none  &none         &none         &none         &none                                                     &none  &none     &none         &none            &none  &none
+&none  &none  &kp NUMBER_5  &kp N6        &kp NUMBER_7  &kp NUMBER_8                                              &none  &none     &kp UP_ARROW  &none            &none  &none
+&none  &none  &kp N9        &kp NUMBER_0  &none         &none         &none  &none  &none    &none  &none  &none  &none  &kp LEFT  &kp DOWN      &kp RIGHT_ARROW  &none  &none
+&none  &none  &none         &none         &none                       &none  &none  &none    &none  &none  &none         &none     &none         &none            &none  &none
             >;
         };
 
