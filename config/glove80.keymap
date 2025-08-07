@@ -28,6 +28,22 @@
             tapping-term-ms = <200>;
             bindings = <&mo 1>, <&to 1>;
         };
+
+        magic_status: magic_status {
+            compatible = "zmk,behavior-macro";
+            label = "MAGIC_STATUS";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_EFF RGB_EFF_BATTERY_LEVEL>;
+        };
+        
+        magic_layer: magic_layer {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MAGIC_LAYER";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&magic_status>;
+        };
     };
 
     macros {
