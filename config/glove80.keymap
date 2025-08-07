@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
 
 // layers
 
@@ -23,52 +24,65 @@
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
         layer_td: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_TD";
+            label = "LAYER_TAP_DANCE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo 1>, <&to 1>;
+            bindings = <&mo LOWER>, <&to LOWER>;
         };
 
-        magic_status: magic_status {
-            compatible = "zmk,behavior-macro";
-            label = "MAGIC_STATUS";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_EFF RGB_EFF_BATTERY_LEVEL>;
-        };
-        
-        magic_layer: magic_layer {
+        magic: magic_hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "MAGIC_LAYER";
+            label = "MAGIC_HOLD_TAP";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&magic_status>;
+            bindings = <&mo>, <&rgb_ug_status_macro>;
         };
     };
 
     macros {
-        bt_0: bt_profile_macro_0 {
+        rgb_ug_status_macro: rgb_ug_status_macro_0 {
+            label = "RGB_UG_STATUS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE &bt BT_SEL 0>;
+            bindings
+                = <&rgb_ug RGB_STATUS>;
+        };
+
+        bt_0: bt_profile_macro_0 {
+            label = "BT_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 0>;
         };
 
         bt_1: bt_profile_macro_1 {
+            label = "BT_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE &bt BT_SEL 1>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 1>;
         };
 
         bt_2: bt_profile_macro_2 {
+            label = "BT_2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE &bt BT_SEL 2>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 2>;
         };
 
         bt_3: bt_profile_macro_3 {
+            label = "BT_3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE &bt BT_SEL 3>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 3>;
         };
     };
 
